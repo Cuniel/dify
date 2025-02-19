@@ -414,7 +414,7 @@ x-shared-env: &shared-api-worker-env
 services:
   # API service
   api:
-    image: langgenius/dify-api:0.15.3
+    image: langgenius/dify-api:1.0.0
     restart: always
     environment:
       # Use the shared environment variables.
@@ -439,7 +439,7 @@ services:
   # worker service
   # The Celery worker for processing the queue.
   worker:
-    image: langgenius/dify-api:0.15.3
+    image: langgenius/dify-api:1.0.0
     restart: always
     environment:
       # Use the shared environment variables.
@@ -463,7 +463,7 @@ services:
 
   # Frontend web application.
   web:
-    #image: langgenius/dify-web:0.15.3
+    #image: langgenius/dify-web:1.0.0
     #image: cuniel/ecrobot-web:latest
     build:
       context: ../web  # 指定前端代码所在的路径

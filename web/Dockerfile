@@ -33,6 +33,7 @@ COPY . .
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 RUN pnpm build
 
+
 # production stage
 FROM base AS production
 
