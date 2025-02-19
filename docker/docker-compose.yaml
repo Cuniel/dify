@@ -463,7 +463,7 @@ services:
 
   # Frontend web application.
   web:
-    #image: langgenius/dify-web:1.0.0
+    #image: langgenius/dify-web:0.15.3
     #image: cuniel/ecrobot-web:latest
     build:
       context: ../web  # 指定前端代码所在的路径
