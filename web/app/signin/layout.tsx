@@ -16,6 +16,8 @@ export default async function SignInLayout({ children }: any) {
         cn(
           'flex w-full flex-col bg-white shadow rounded-2xl shrink-0',
           'space-between',
+          'bg-cover bg-center bg-no-repeat',
+          'bg-[image:url(/images/login-bg.jpg)] bg-gray-100',
         )
       }>
         <Header />
