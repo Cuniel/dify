@@ -169,7 +169,7 @@ export default function AccountPage() {
           </div>
         )
       }
-      <div className='mb-6 border-[1px] border-divider-subtle' />
+      {/* <div className='mb-6 border-[1px] border-divider-subtle' />
       <div className='mb-8'>
         <div className={titleClassName}>{t('common.account.langGeniusAccount')}</div>
         <div className={descriptionClassName}>{t('common.account.langGeniusAccountTip')}</div>
@@ -182,7 +182,7 @@ export default function AccountPage() {
           />
         )}
         {!IS_CE_EDITION && <Button className='mt-2 text-components-button-destructive-secondary-text' onClick={() => setShowDeleteAccountModal(true)}>{t('common.account.delete')}</Button>}
-      </div>
+      </div> */}
       {
         editNameModalVisible && (
           <Modal

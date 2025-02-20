@@ -103,7 +103,16 @@ export default function MailAndPasswordAuth({ isInvite, isEmailSetup, allowRegis
     }
   }
 
-  return <form onSubmit={() => { }}>
+  return <form onSubmit={() => { }} 
+            style={{
+              backdropFilter: "blur(10px)", 
+              backgroundColor: "rgba(255, 255, 255, 0.8)", 
+              border: "1px solid rgba(255, 255, 255, 0.2)", 
+              borderRadius: "1rem", 
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", 
+              padding: "2rem"
+            }}
+          >
     <div className='mb-3'>
       <label htmlFor="email" className="my-2 system-md-semibold text-text-secondary">
         {t('login.email')}

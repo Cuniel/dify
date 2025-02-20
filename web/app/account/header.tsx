@@ -25,7 +25,8 @@ const Header = () => {
       <div className='flex items-center flex-shrink-0 gap-3'>
         <Button className='gap-2 py-2 px-3 system-sm-medium' onClick={back}>
           <RiRobot2Line className='w-4 h-4' />
-          <p>{t('common.account.studio')}</p>
+          {/* <p>{t('common.account.studio')}</p> */}
+          <p> ECRobot </p>
           <RiArrowRightUpLine className='w-4 h-4' />
         </Button>
         <div className='w-[1px] h-4 bg-divider-regular' />

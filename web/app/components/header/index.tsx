@@ -63,7 +63,7 @@ const Header = () => {
         {
           !isMobile
           && <div className='flex w-64 p-2 pl-3 gap-1.5 items-center shrink-0 self-stretch'>
-            <Link href="/apps" className='flex w-8 h-8 items-center justify-center gap-2 shrink-0'>
+            <Link href="/apps" className='flex items-center justify-center gap-2 shrink-0'>
               <LogoSite className='object-contain' />
             </Link>
             <div className='font-light text-divider-deep'>/</div>
