@@ -1,5 +1,5 @@
 const translation = {
-  pageTitle: '嗨，近來可好',
+  pageTitle: '歡迎使用 ECRobot',
   welcome: '👋 歡迎來到 Dify, 登入以繼續',
   email: '郵箱',
   emailPlaceholder: '輸入郵箱地址',
