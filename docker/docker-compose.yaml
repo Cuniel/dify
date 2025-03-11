@@ -319,8 +319,8 @@ x-shared-env: &shared-api-worker-env
   SANDBOX_GIN_MODE: ${SANDBOX_GIN_MODE:-release}
   SANDBOX_WORKER_TIMEOUT: ${SANDBOX_WORKER_TIMEOUT:-15}
   SANDBOX_ENABLE_NETWORK: ${SANDBOX_ENABLE_NETWORK:-true}
-  SANDBOX_HTTP_PROXY: ${SANDBOX_HTTP_PROXY:-http://ssrf_proxy:3128}
-  SANDBOX_HTTPS_PROXY: ${SANDBOX_HTTPS_PROXY:-http://ssrf_proxy:3128}
+  SANDBOX_HTTP_PROXY: ${SANDBOX_HTTP_PROXY:-http://host.docker.internal:7890}
+  SANDBOX_HTTPS_PROXY: ${SANDBOX_HTTPS_PROXY:-http://host.docker.internal:7890}
   SANDBOX_PORT: ${SANDBOX_PORT:-8194}
   WEAVIATE_PERSISTENCE_DATA_PATH: ${WEAVIATE_PERSISTENCE_DATA_PATH:-/var/lib/weaviate}
   WEAVIATE_QUERY_DEFAULTS_LIMIT: ${WEAVIATE_QUERY_DEFAULTS_LIMIT:-25}
@@ -467,9 +467,8 @@ services:
 
   # Frontend web application.
   web:
-    image: langgenius/dify-web:1.0.0
     #image: langgenius/dify-web:1.0.0
-    #image: cuniel/ecrobot-web:latest
+    image: cuniel/ecrobot-web:latest
     # build:
     #   context: ../web  # 指定前端代码所在的路径
     #   dockerfile: Dockerfile
