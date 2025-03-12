@@ -39,7 +39,7 @@ export default function AccountAbout({
           <div className='mb-3 text-center text-xs font-normal text-text-tertiary'>Version {langeniusVersionInfo?.current_version}</div>
           <div className='mb-4 text-center text-xs font-normal text-text-secondary'>
             <div>© {dayjs().year()} 南京伊克罗德信息科技有限公司</div>
-            <div className='text-text-accent'>
+            {/* <div className='text-text-accent'>
               {
                 IS_CE_EDITION
                   ? <Link href={'https://github.com/langgenius/dify/blob/main/LICENSE'} target='_blank' rel='noopener noreferrer'>Open Source License</Link>

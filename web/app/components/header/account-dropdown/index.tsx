@@ -120,7 +120,7 @@ export default function AppSelector({ isMobile }: IAppSelector) {
                       </div>}
                     </Menu.Item>
                   </div>
-                  <div className='p-1'>
+                  {/* <div className='p-1'>
                     <Menu.Item>
                       {({ active }) => <Link
                         className={classNames(itemClassName, 'group justify-between',
@@ -137,9 +137,9 @@ export default function AppSelector({ isMobile }: IAppSelector) {
                     </Menu.Item>
                     <Support />
                     {IS_CLOUD_EDITION && isCurrentWorkspaceOwner && <Compliance />}
-                  </div>
+                  </div> */}
                   <div className='p-1'>
-                    <Menu.Item>
+                    {/* <Menu.Item>
                       {({ active }) => <Link
                         className={classNames(itemClassName, 'group justify-between',
                           active && 'bg-state-base-hover',
@@ -165,7 +165,7 @@ export default function AppSelector({ isMobile }: IAppSelector) {
                           <GithubStar className='system-2xs-medium-uppercase text-text-tertiary' />
                         </div>
                       </Link>}
-                    </Menu.Item>}
+                    </Menu.Item>} */}
                     {
                       document?.body?.getAttribute('data-public-site-about') !== 'hide' && (
                         <Menu.Item>
