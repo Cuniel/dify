@@ -1,5 +1,4 @@
 import Header from '../signin/_header'
-import style from '../signin/page.module.css'
 
 import cn from '@/utils/classnames'
 
@@ -23,7 +22,7 @@ export default async function SignInLayout({ children }: any) {
         <Header />
         <div className={
           cn(
-            'flex flex-col items-center w-full grow justify-center',
+            'flex w-full grow flex-col items-center justify-center',
             'px-6',
             'md:px-[108px]',
           )
