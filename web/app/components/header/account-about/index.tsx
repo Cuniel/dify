@@ -1,12 +1,9 @@
 'use client'
 import { useTranslation } from 'react-i18next'
-import Link from 'next/link'
 import dayjs from 'dayjs'
 import { RiCloseLine } from '@remixicon/react'
 import Modal from '@/app/components/base/modal'
-import Button from '@/app/components/base/button'
 import type { LangGeniusVersionResponse } from '@/models/common'
-import { IS_CE_EDITION } from '@/config'
 import LogoSite from '@/app/components/base/logo/logo-site'
 import { noop } from 'lodash-es'
 
@@ -53,7 +50,7 @@ export default function AccountAbout({
           </div>
         </div>
         <div className='-mx-8 mb-4 h-[0.5px] bg-divider-regular' />
-        <div className='flex items-center justify-between'>
+        {/* <div className='flex items-center justify-between'>
           <div className='text-xs font-medium text-text-primary'>
             {
               isLatest
