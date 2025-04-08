@@ -13,8 +13,4 @@ const PluginList = async () => {
   )
 }
 
-export const metadata = {
-  title: 'Plugins - ECRobot',
-}
-
 export default PluginList

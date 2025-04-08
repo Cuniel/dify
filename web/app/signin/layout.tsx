@@ -5,27 +5,24 @@ import cn from '@/utils/classnames'
 export default async function SignInLayout({ children }: any) {
   return <>
     <div className={cn(
-      style.background,
-      'flex w-full min-h-screen',
+      'flex min-h-screen w-full justify-center bg-background-default-burn p-6',
       'sm:p-4 lg:p-8',
       'gap-x-20',
-      'justify-center lg:justify-start',
+      'lg:justify-start',
     )}>
-      <div className={
-        cn(
-          'flex w-full flex-col bg-white shadow rounded-2xl shrink-0',
-          'space-between',
-          'bg-cover bg-center bg-no-repeat',
-          'bg-[image:url(/images/login-bg.jpg)] bg-gray-100',
-        )
-      }>
+      <div className={cn(
+        'flex w-full shrink-0 flex-col rounded-2xl border border-effects-highlight bg-background-default-subtle',
+        'space-between',
+        'bg-cover bg-center bg-no-repeat',
+        'bg-gray-100 bg-[image:url(/images/login-bg.jpg)]',
+      )}>
         <Header />
         <div className={cn('flex w-full grow flex-col items-center justify-center px-6 md:px-[108px]')}>
           <div className='flex flex-col md:w-[400px]'>
             {children}
           </div>
         </div>
-        <div className='px-8 py-6 system-xs-regular text-text-tertiary'>
+        <div className='system-xs-regular px-8 py-6 text-text-tertiary'>
           © {new Date().getFullYear()} 南京伊克罗德信息科技有限公司 版权所有
         </div>
       </div>
