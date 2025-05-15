@@ -14,6 +14,7 @@ import type { AppIconSelection } from '../../base/app-icon-picker'
 import Button from '@/app/components/base/button'
 import Divider from '@/app/components/base/divider'
 import cn from '@/utils/classnames'
+import { WEB_PREFIX } from '@/config'
 import AppsContext, { useAppContext } from '@/context/app-context'
 import { useProviderContext } from '@/context/provider-context'
 import { ToastContext } from '@/app/components/base/toast'
@@ -90,7 +91,7 @@ function CreateApp({ onClose, onSuccess, onCreateFromTemplate }: CreateAppProps)
       localStorage.setItem(NEED_REFRESH_APP_LIST_KEY, '1')
       getRedirection(isCurrentWorkspaceEditor, app, push)
     }
-    catch (e) {
+    catch {
       notify({ type: 'error', message: t('app.newApp.appCreateFailed') })
     }
     isCreatingRef.current = false
@@ -287,7 +288,6 @@ type AppTypeCardProps = {
   onClick: () => void
 }
 function AppTypeCard({ icon, title, description, active, onClick }: AppTypeCardProps) {
-  const { t } = useTranslation()
   return <div
     className={
       cn(`relative box-content h-[84px] w-[191px] cursor-pointer rounded-xl
@@ -310,17 +310,17 @@ function AppPreview({ mode }: { mode: AppMode }) {
     'chat': {
       title: t('app.types.chatbot'),
       description: t('app.newApp.chatbotUserDescription'),
-      link: 'https://docs.dify.ai/guides/application-orchestrate#application_type',
+      link: 'https://docs.dify.ai/guides/application-orchestrate/readme',
     },
     'advanced-chat': {
       title: t('app.types.advanced'),
       description: t('app.newApp.advancedUserDescription'),
-      link: 'https://docs.dify.ai/guides/workflow',
+      link: 'https://docs.dify.ai/en/guides/workflow/README',
     },
     'agent-chat': {
       title: t('app.types.agent'),
       description: t('app.newApp.agentUserDescription'),
-      link: 'https://docs.dify.ai/guides/application-orchestrate/agent',
+      link: 'https://docs.dify.ai/en/guides/application-orchestrate/agent',
     },
     'completion': {
       title: t('app.newApp.completeApp'),
@@ -330,7 +330,7 @@ function AppPreview({ mode }: { mode: AppMode }) {
     'workflow': {
       title: t('app.types.workflow'),
       description: t('app.newApp.workflowUserDescription'),
-      link: 'https://docs.dify.ai/guides/workflow',
+      link: 'https://docs.dify.ai/en/guides/workflow/README',
     },
   }
   const previewInfo = modeToPreviewInfoMap[mode]
@@ -353,11 +353,11 @@ function AppScreenShot({ mode, show }: { mode: AppMode; show: boolean }) {
     'workflow': 'Workflow',
   }
   return <picture>
-    <source media="(resolution: 1x)" srcSet={`/screenshots/${theme}/${modeToImageMap[mode]}.png`} />
-    <source media="(resolution: 2x)" srcSet={`/screenshots/${theme}/${modeToImageMap[mode]}@2x.png`} />
-    <source media="(resolution: 3x)" srcSet={`/screenshots/${theme}/${modeToImageMap[mode]}@3x.png`} />
+    <source media="(resolution: 1x)" srcSet={`${WEB_PREFIX}/screenshots/${theme}/${modeToImageMap[mode]}.png`} />
+    <source media="(resolution: 2x)" srcSet={`${WEB_PREFIX}/screenshots/${theme}/${modeToImageMap[mode]}@2x.png`} />
+    <source media="(resolution: 3x)" srcSet={`${WEB_PREFIX}/screenshots/${theme}/${modeToImageMap[mode]}@3x.png`} />
     <Image className={show ? '' : 'hidden'}
-      src={`/screenshots/${theme}/${modeToImageMap[mode]}.png`}
+      src={`${WEB_PREFIX}/screenshots/${theme}/${modeToImageMap[mode]}.png`}
       alt='App Screen Shot'
       width={664} height={448} />
   </picture>

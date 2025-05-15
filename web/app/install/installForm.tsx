@@ -3,7 +3,6 @@ import React, { useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDebounceFn } from 'ahooks'
 
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 import type { SubmitHandler } from 'react-hook-form'
@@ -80,12 +79,12 @@ const InstallForm = () => {
     fetchSetupStatus().then((res: SetupStatusResponse) => {
       if (res.step === 'finished') {
         localStorage.setItem('setup_status', 'finished')
-        window.location.href = '/signin'
+        router.push('/signin')
       }
       else {
         fetchInitValidateStatus().then((res: InitValidateStatusResponse) => {
           if (res.status === 'not_started')
-            window.location.href = '/init'
+            router.push('/init')
         })
       }
       setLoading(false)

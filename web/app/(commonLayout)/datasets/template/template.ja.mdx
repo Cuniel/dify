@@ -37,7 +37,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
   <Col>
     この API は既存のナレッジに基づいており、このナレッジを基にテキストを使用して新しいドキュメントを作成します。
 
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID
@@ -175,7 +175,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
   <Col>
     この API は既存のナレッジに基づいており、このナレッジを基にファイルを使用して新しいドキュメントを作成します。
 
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID
@@ -337,7 +337,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
       <Property name='embedding_model' type='str' key='embedding_model'>
         埋め込みモデル名（任意）
       </Property>
-      <Property name='embedding_provider_name' type='str' key='embedding_provider_name'>
+      <Property name='embedding_model_provider' type='str' key='embedding_model_provider'>
         埋め込みモデルのプロバイダ名（任意）
       </Property>
       <Property name='retrieval_model' type='object' key='retrieval_model'>
@@ -501,7 +501,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
     ```
     </CodeGroup>
     <CodeGroup title="レスポンス">
-    ```text {{ title: 'Response' }}
+    ```text {{ title: 'レスポンス' }}
     204 No Content
     ```
     </CodeGroup>
@@ -520,7 +520,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
   <Col>
     この API は既存のナレッジに基づいており、このナレッジを基にテキストを使用してドキュメントを更新します。
 
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID
@@ -622,7 +622,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
   <Col>
     この API は既存のナレッジに基づいており、このナレッジを基にファイルを使用してドキュメントを更新します。
 
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID
@@ -774,7 +774,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
 />
 <Row>
   <Col>
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID
@@ -797,10 +797,8 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
     ```
     </CodeGroup>
     <CodeGroup title="レスポンス">
-    ```json {{ title: 'Response' }}
-    {
-      "result": "success"
-    }
+    ```text {{ title: 'レスポンス' }}
+    204 No Content
     ```
     </CodeGroup>
   </Col>
@@ -816,7 +814,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
 />
 <Row>
   <Col>
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID
@@ -891,7 +889,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
 />
 <Row>
   <Col>
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID
@@ -1083,19 +1081,17 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
       title="リクエスト"
       tag="DELETE"
       label="/datasets/{dataset_id}/documents/{document_id}/segments/{segment_id}"
-      targetCode={`curl --location --request DELETE '${props.apiBaseUrl}/datasets/{dataset_id}/segments/{segment_id}' \\\n--header 'Authorization: Bearer {api_key}' \\\n--header 'Content-Type: application/json'`}
+      targetCode={`curl --location --request DELETE '${props.apiBaseUrl}/datasets/{dataset_id}/documents/{document_id}/segments/{segment_id}' \\\n--header 'Authorization: Bearer {api_key}' \\\n--header 'Content-Type: application/json'`}
     >
     ```bash {{ title: 'cURL' }}
-    curl --location --request DELETE '${props.apiBaseUrl}/datasets/{dataset_id}/segments/{segment_id}' \
+    curl --location --request DELETE '${props.apiBaseUrl}/datasets/{dataset_id}/documents/{document_id}/segments/{segment_id}' \
     --header 'Authorization: Bearer {api_key}' \
     --header 'Content-Type: application/json'
     ```
     </CodeGroup>
     <CodeGroup title="レスポンス">
-    ```json {{ title: 'Response' }}
-    {
-      "result": "success"
-    }
+    ```text {{ title: 'レスポンス' }}
+    204 No Content
     ```
     </CodeGroup>
   </Col>
@@ -1200,7 +1196,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
 />
 <Row>
   <Col>
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID
@@ -1271,7 +1267,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
 />
 <Row>
   <Col>
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID
@@ -1348,7 +1344,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
 />
 <Row>
   <Col>
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID
@@ -1377,10 +1373,8 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
     ```
     </CodeGroup>
     <CodeGroup title="レスポンス">
-    ```json {{ title: 'Response' }}
-    {
-      "result": "success"
-    }
+    ```text {{ title: 'レスポンス' }}
+    204 No Content
     ```
     </CodeGroup>
   </Col>
@@ -1396,7 +1390,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
 />
 <Row>
   <Col>
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID
@@ -1665,7 +1659,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
 />
 <Row>
   <Col>
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID
@@ -1712,7 +1706,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
 />
 <Row>
   <Col>
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID
@@ -1761,7 +1755,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
 />
 <Row>
   <Col>
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID
@@ -1794,7 +1788,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
 />
 <Row>
   <Col>
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID
@@ -1827,7 +1821,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
 />
 <Row>
   <Col>
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID
@@ -1868,7 +1862,7 @@ import { Row, Col, Properties, Property, Heading, SubProperty, PropertyInstructi
 />
 <Row>
   <Col>
-    ### パラメータ
+    ### パス
     <Properties>
       <Property name='dataset_id' type='string' key='dataset_id'>
         ナレッジ ID

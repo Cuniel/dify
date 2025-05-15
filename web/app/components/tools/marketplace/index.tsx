@@ -2,8 +2,8 @@ import {
   useEffect,
   useRef,
 } from 'react'
+import { useTheme } from 'next-themes'
 import {
-  RiArrowRightUpLine,
   RiArrowUpDoubleLine,
 } from '@remixicon/react'
 import { useTranslation } from 'react-i18next'
@@ -11,7 +11,6 @@ import { useMarketplace } from './hooks'
 import List from '@/app/components/plugins/marketplace/list'
 import Loading from '@/app/components/base/loading'
 import { getLocaleOnClient } from '@/i18n'
-import { MARKETPLACE_URL_PREFIX } from '@/config'
 
 type MarketplaceProps = {
   searchPluginText: string
@@ -25,7 +24,7 @@ const Marketplace = ({
 }: MarketplaceProps) => {
   const locale = getLocaleOnClient()
   const { t } = useTranslation()
-
+  const { theme } = useTheme()
   const {
     isLoading,
     marketplaceCollections,
@@ -83,7 +82,7 @@ const Marketplace = ({
           </span>
           {t('common.operation.in')}
           <a
-            href={`${MARKETPLACE_URL_PREFIX}?language=${locale}&q=${searchPluginText}&tags=${filterPluginTags.join(',')}`}
+            href={`${MARKETPLACE_URL_PREFIX}?language=${locale}&q=${searchPluginText}&tags=${filterPluginTags.join(',')}${theme ? `&theme=${theme}` : ''}`}
             className='system-sm-medium ml-1 flex items-center text-text-accent'
             target='_blank'
           >
