@@ -4,7 +4,6 @@ import dayjs from 'dayjs'
 import { RiCloseLine } from '@remixicon/react'
 import Modal from '@/app/components/base/modal'
 import type { LangGeniusVersionResponse } from '@/models/common'
-import LogoSite from '@/app/components/base/logo/logo-site'
 import { noop } from 'lodash-es'
 
 type IAccountSettingProps = {
