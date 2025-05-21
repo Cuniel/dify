@@ -16,6 +16,9 @@ import type { ModelConfig, PromptVariable } from '@/models/debug'
 import type { AppType } from '@/types/app'
 import { ModelModeType } from '@/types/app'
 
+import CreateAppCard from '@/app/(commonLayout)/datasets/NewDatasetCard'
+import Trigger from '@/app/components/header/account-setting/model-provider-page/model-parameter-modal/trigger'
+
 const Config: FC = () => {
   const {
     mode,
@@ -59,19 +62,21 @@ const Config: FC = () => {
       <div
         className="relative h-0 grow overflow-y-auto px-6 pb-[50px]"
       >
+        {/* create dataset */}
+        <CreateAppCard />
         {/* Template */}
-        <ConfigPrompt
+        {/*<ConfigPrompt
           mode={mode as AppType}
           promptTemplate={promptTemplate}
           promptVariables={promptVariables}
           onChange={handlePromptChange}
-        />
+        />*/}
 
         {/* Variables */}
-        <ConfigVar
+        {/*<ConfigVar
           promptVariables={promptVariables}
           onPromptVariablesChange={handlePromptVariablesNameChange}
-        />
+        />*/}
 
         {/* Dataset */}
         <DatasetConfig />
@@ -81,7 +86,7 @@ const Config: FC = () => {
           <AgentTools />
         )}
 
-        <ConfigVision />
+        {/*<ConfigVision />*/}
 
         <ConfigDocument />
 

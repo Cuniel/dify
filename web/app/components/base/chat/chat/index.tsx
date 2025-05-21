@@ -73,6 +73,7 @@ export type ChatProps = {
   inputDisabled?: boolean
   isMobile?: boolean
   sidebarCollapseState?: boolean
+  modelParameterModal?: React.ReactNode // 添加这一行
 }
 
 const Chat: FC<ChatProps> = ({
@@ -112,6 +113,7 @@ const Chat: FC<ChatProps> = ({
   inputDisabled,
   isMobile,
   sidebarCollapseState,
+  modelParameterModal, // 添加这一行
 }) => {
   const { t } = useTranslation()
   const { currentLogItem, setCurrentLogItem, showPromptLogModal, setShowPromptLogModal, showAgentLogModal, setShowAgentLogModal } = useAppStore(useShallow(state => ({
@@ -315,6 +317,7 @@ const Chat: FC<ChatProps> = ({
                   inputsForm={inputsForm}
                   theme={themeBuilder?.theme}
                   isResponding={isResponding}
+                  modelParameterModal={modelParameterModal} // 添加这一行
                 />
               )
             }

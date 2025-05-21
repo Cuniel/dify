@@ -41,6 +41,7 @@ type ChatInputAreaProps = {
   theme?: Theme | null
   isResponding?: boolean
   disabled?: boolean
+  modelParameterModal?: React.ReactNode // 添加这一行
 }
 const ChatInputArea = ({
   showFeatureBar,
@@ -55,6 +56,7 @@ const ChatInputArea = ({
   theme,
   isResponding,
   disabled,
+  modelParameterModal, // 添加这一行
 }: ChatInputAreaProps) => {
   const { t } = useTranslation()
   const { notify } = useToastContext()
@@ -230,6 +232,8 @@ const ChatInputArea = ({
           )
         }
       </div>
+      {modelParameterModal} {/* 添加这一行 */}
+      <Divider type='vertical' className='mx-2 h-[14px]' />
       {showFeatureBar && <FeatureBar showFileUpload={showFileUpload} disabled={featureBarDisabled} onFeatureBarClick={onFeatureBarClick} />}
     </>
   )

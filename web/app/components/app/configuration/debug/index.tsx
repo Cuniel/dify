@@ -54,6 +54,7 @@ type IDebug = {
   onSetting: () => void
   inputs: Inputs
   modelParameterParams: Pick<ModelParameterModalProps, 'setModel' | 'onCompletionParamsChange'>
+  modelParameterModal?: React.ReactNode // 添加这一行
   debugWithMultipleModel: boolean
   multipleModelConfigs: ModelAndParameter[]
   onMultipleModelConfigsChange: (multiple: boolean, modelConfigs: ModelAndParameter[]) => void
@@ -64,6 +65,7 @@ const Debug: FC<IDebug> = ({
   onSetting,
   inputs,
   modelParameterParams,
+  modelParameterModal,
   debugWithMultipleModel,
   multipleModelConfigs,
   onMultipleModelConfigsChange,
@@ -442,7 +444,7 @@ const Debug: FC<IDebug> = ({
             <ChatUserInput inputs={inputs} />
           </div>
         )}
-        {mode === AppType.completion && (
+        {/*{mode === AppType.completion && (
           <PromptValuePanel
             appType={mode as AppType}
             onSend={handleSendTextCompletion}
@@ -454,7 +456,8 @@ const Debug: FC<IDebug> = ({
             }}
             onVisionFilesChange={setCompletionFiles}
           />
-        )}
+        )}*/}
+
       </div>
       {
         debugWithMultipleModel && (
@@ -497,6 +500,7 @@ const Debug: FC<IDebug> = ({
                 <DebugWithSingleModel
                   ref={debugWithSingleModelRef}
                   checkCanSend={checkCanSend}
+                  modelParameterModal={modelParameterModal} // 添加这一行
                 />
               </div>
             )}

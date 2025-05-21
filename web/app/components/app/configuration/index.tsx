@@ -36,6 +36,9 @@ import type {
 } from '@/models/debug'
 import type { ExternalDataTool } from '@/models/common'
 import type { DataSet } from '@/models/datasets'
+import NewDatasetCard from '@/app/(commonLayout)/NewDatasetCard'
+// 在文件顶部添加这一行导入
+import KnowledgeBaseSelector from '@/app/components/app/configuration/dataset-config/knowledge-base-selector'
 import type { ModelConfig as BackendModelConfig, VisionSettings } from '@/types/app'
 import ConfigContext from '@/context/debug-configuration'
 import Config from '@/app/components/app/configuration/config'
@@ -975,10 +978,20 @@ const Configuration: FC = () => {
                   </div>
                 </div>
               </div>
-              <div className={`flex h-full w-full shrink-0 flex-col sm:w-1/2 ${debugWithMultipleModel && 'max-w-[560px]'}`}>
+              <div className={`flex h-full w-full shrink-0 flex-col sm:w-1/3 ${debugWithMultipleModel && 'max-w-[560px]'}`}>
                 <Config />
               </div>
-              {!isMobile && <div className="relative flex h-full w-1/2 grow flex-col overflow-y-auto " style={{ borderColor: 'rgba(0, 0, 0, 0.02)' }}>
+              {/* 中间知识库选择列 */}
+              <div className="relative flex h-full w-1/3 flex-col overflow-y-auto border-l-[0.5px] border-t-[0.5px] border-components-panel-border bg-white">
+                <div className="p-4">
+                  <h2 className="system-lg-semibold text-text-primary mb-4">{t('appDebug.feature.dataSet.selectTitle')}</h2>
+                  <KnowledgeBaseSelector
+                    selectedIds={selectedIds}
+                    onSelect={handleSelect}
+                  />
+                </div>
+              </div>
+              {!isMobile && <div className="relative flex h-full w-1/3 grow flex-col overflow-y-auto " style={{ borderColor: 'rgba(0, 0, 0, 0.02)' }}>
                 <div className='flex grow flex-col rounded-tl-2xl border-l-[0.5px] border-t-[0.5px] border-components-panel-border bg-chatbot-bg '>
                   <Debug
                     isAPIKeySet={isAPIKeySet}
@@ -988,6 +1001,21 @@ const Configuration: FC = () => {
                       setModel: setModel as any,
                       onCompletionParamsChange: setCompletionParams,
                     }}
+                    modelParameterModal={
+                      <ModelParameterModal
+                         isAdvancedMode={isAdvancedMode}
+                         mode={mode}
+                         provider={modelConfig.provider}
+                         completionParams={completionParams}
+                         modelId={modelConfig.model_id}
+                         setModel={setModel as any}
+                         onCompletionParamsChange={(newParams: FormValue) => {
+                           setCompletionParams(newParams)
+                         }}
+                       debugWithMultipleModel={debugWithMultipleModel}
+                         onDebugWithMultipleModelChange={handleDebugWithMultipleModelChange}
+                      />
+                    }
                     debugWithMultipleModel={debugWithMultipleModel}
                     multipleModelConfigs={multipleModelConfigs}
                     onMultipleModelConfigsChange={handleMultipleModelConfigsChange}

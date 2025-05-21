@@ -25,6 +25,7 @@ import type { FileEntity } from '@/app/components/base/file-uploader/types'
 
 type DebugWithSingleModelProps = {
   checkCanSend?: () => boolean
+  modelParameterModal?: React.ReactNode // 添加这一行
 }
 export type DebugWithSingleModelRefType = {
   handleRestart: () => void
@@ -33,6 +34,7 @@ const DebugWithSingleModel = (
   {
     ref,
     checkCanSend,
+    modelParameterModal, // 添加这一行
   }: DebugWithSingleModelProps & {
     ref: React.RefObject<DebugWithSingleModelRefType>;
   },
@@ -175,6 +177,7 @@ const DebugWithSingleModel = (
       onAnnotationEdited={handleAnnotationEdited}
       onAnnotationAdded={handleAnnotationAdded}
       onAnnotationRemoved={handleAnnotationRemoved}
+      modelParameterModal={modelParameterModal} // 添加这一行
       noSpacing
     />
   )
