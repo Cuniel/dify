@@ -27,6 +27,7 @@ import { useToastContext } from '@/app/components/base/toast'
 import FeatureBar from '@/app/components/base/features/new-feature-panel/feature-bar'
 import type { FileUpload } from '@/app/components/base/features/types'
 import { TransferMethod } from '@/types/app'
+import Divider from '@/app/components/base/divider'
 
 type ChatInputAreaProps = {
   showFeatureBar?: boolean
@@ -233,7 +234,6 @@ const ChatInputArea = ({
         }
       </div>
       {modelParameterModal} {/* 添加这一行 */}
-      <Divider type='vertical' className='mx-2 h-[14px]' />
       {showFeatureBar && <FeatureBar showFileUpload={showFileUpload} disabled={featureBarDisabled} onFeatureBarClick={onFeatureBarClick} />}
     </>
   )

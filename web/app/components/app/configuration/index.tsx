@@ -82,6 +82,12 @@ import {
 } from '@/utils'
 import PluginDependency from '@/app/components/workflow/plugin-dependency'
 import { supportFunctionCall } from '@/utils/tool-call'
+import HeaderWrapper from '@/app/components/header/header-wrapper'
+import Header from '@/app/components/header'
+import Link from 'next/link'
+import DifyLogo from '@/app/components/base/logo/dify-logo'
+import EnvNav from '@/app/components/header/env-nav'
+import AccountDropdown from '@/app/components/header/account-dropdown'
 
 type PublishConfig = {
   modelConfig: ModelConfig
@@ -918,6 +924,24 @@ const Configuration: FC = () => {
               <div className='bg-default-subtle absolute left-0 top-0 h-14 w-full'>
                 <div className='flex h-14 items-center justify-between px-6'>
                   <div className='flex items-center'>
+                  <div className='flex shrink-0 items-center gap-1.5 self-stretch pl-3'>
+                    <Link href="/apps" className='flex h-[60px] w-[200px] shrink-0 items-center justify-center gap-2'>
+                      <DifyLogo />
+                    </Link>
+                  </div>
+                  </div>
+                  <div className='flex items-center'>
+                  <div className='flex shrink-0 items-center pr-3'>
+                    <EnvNav />
+                    <AccountDropdown />
+                  </div>
+                  </div>
+
+
+              {/*
+                <div className='bg-default-subtle absolute left-0 top-0 h-14 w-full'>
+                <div className='flex h-14 items-center justify-between px-6'>
+                  <div className='flex items-center'>
                     <div className='system-xl-semibold text-text-primary'>{t('appDebug.orchestrate')}</div>
                     <div className='flex h-[14px] items-center space-x-1 text-xs'>
                       {isAdvancedMode && (
@@ -926,7 +950,6 @@ const Configuration: FC = () => {
                     </div>
                   </div>
                   <div className='flex items-center'>
-                    {/* Agent Setting */}
                     {isAgent && (
                       <AgentSettingButton
                         isChatModel={modelConfig.mode === ModelModeType.chat}
@@ -941,7 +964,6 @@ const Configuration: FC = () => {
                         }}
                       />
                     )}
-                    {/* Model and Parameters */}
                     {!debugWithMultipleModel && (
                       <>
                         <ModelParameterModal
@@ -976,22 +998,22 @@ const Configuration: FC = () => {
                       resetAppConfig: () => syncToPublishedConfig(publishedConfig!),
                     }} />
                   </div>
+                  */}
                 </div>
               </div>
-              <div className={`flex h-full w-full shrink-0 flex-col sm:w-1/3 ${debugWithMultipleModel && 'max-w-[560px]'}`}>
+              <div className={`flex h-full w-full shrink-0 flex-col sm:w-[30%] ${debugWithMultipleModel && 'max-w-[560px]'}`}>
                 <Config />
               </div>
               {/* 中间知识库选择列 */}
-              <div className="relative flex h-full w-1/3 flex-col overflow-y-auto border-l-[0.5px] border-t-[0.5px] border-components-panel-border bg-white">
-                <div className="p-4">
-                  <h2 className="system-lg-semibold text-text-primary mb-4">{t('appDebug.feature.dataSet.selectTitle')}</h2>
+              <div className={`flex h-full w-full shrink-0 flex-col sm:w-[30%] ${debugWithMultipleModel && 'max-w-[560px]'}`}>
+                
                   <KnowledgeBaseSelector
                     selectedIds={selectedIds}
                     onSelect={handleSelect}
                   />
-                </div>
+                
               </div>
-              {!isMobile && <div className="relative flex h-full w-1/3 grow flex-col overflow-y-auto " style={{ borderColor: 'rgba(0, 0, 0, 0.02)' }}>
+              {!isMobile && <div className="relative flex h-full w-auto grow flex-col overflow-y-auto " style={{ borderColor: 'rgba(0, 0, 0, 0.02)' }}>
                 <div className='flex grow flex-col rounded-tl-2xl border-l-[0.5px] border-t-[0.5px] border-components-panel-border bg-chatbot-bg '>
                   <Debug
                     isAPIKeySet={isAPIKeySet}

@@ -63,6 +63,7 @@ const Header = () => {
             <Link href="/apps" className='flex h-8 w-[52px] shrink-0 items-center justify-center gap-2'>
               <DifyLogo />
             </Link>
+            {/*
             <div className='font-light text-divider-deep'>/</div>
             <div className='flex items-center gap-0.5'>
               <WorkspaceProvider>
@@ -70,6 +71,7 @@ const Header = () => {
               </WorkspaceProvider>
               {enableBilling ? <PlanBadge allowHover sandboxAsUpgrade plan={plan.type} onClick={handlePlanClick} /> : <LicenseNav />}
             </div>
+            */}
           </div>
         }
       </div >
@@ -82,21 +84,25 @@ const Header = () => {
           {enableBilling ? <PlanBadge allowHover sandboxAsUpgrade plan={plan.type} onClick={handlePlanClick} /> : <LicenseNav />}
         </div >
       )}
-      {
-        !isMobile && (
-          <div className='absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center'>
-            {!isCurrentWorkspaceDatasetOperator && <ExploreNav className={navClassName} />}
-            {!isCurrentWorkspaceDatasetOperator && <AppNav />}
-            {(isCurrentWorkspaceEditor || isCurrentWorkspaceDatasetOperator) && <DatasetNav />}
-            {!isCurrentWorkspaceDatasetOperator && <ToolsNav className={navClassName} />}
-          </div>
-        )
-      }
+      {/*
+        {
+          !isMobile && (
+            <div className='absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center'>
+              {!isCurrentWorkspaceDatasetOperator && <ExploreNav className={navClassName} />}
+              {!isCurrentWorkspaceDatasetOperator && <AppNav />}
+              {(isCurrentWorkspaceEditor || isCurrentWorkspaceDatasetOperator) && <DatasetNav />}
+              {!isCurrentWorkspaceDatasetOperator && <ToolsNav className={navClassName} />}
+            </div>
+          )
+        }
+      */}
       <div className='flex shrink-0 items-center pr-3'>
         <EnvNav />
+        {/*
         <div className='mr-2'>
           <PluginsNav />
         </div>
+        */}
         <AccountDropdown />
       </div>
       {

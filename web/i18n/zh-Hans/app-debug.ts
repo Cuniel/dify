@@ -451,7 +451,7 @@ const translation = {
     },
   },
   inputs: {
-    title: '调试与预览',
+    title: 'CHERVON知识库检索',
     noPrompt: '尝试在对话前提示框中编写一些提示词',
     userInputField: '用户输入',
     noVar: '填入变量的值，每次启动新会话时该变量将自动替换提示词中的变量。',

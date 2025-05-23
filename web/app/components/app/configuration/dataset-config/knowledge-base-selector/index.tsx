@@ -117,15 +117,19 @@ const KnowledgeBaseSelector: FC<IKnowledgeBaseSelectorProps> = ({
   }
 
   return (
-    <div className="flex flex-col h-full">
+    <div
+        className="relative h-0 grow overflow-y-auto px-6 pb-[50px]"
+      >
+    <div className="bg-background-default-dimm flex min-h-[160px] flex-col rounded-xl border-[0.5px]   border-components-panel-border transition-all duration-200 ease-in-out">
+      <div className="system-sm-semibold text-text-secondary">{t('appDebug.feature.dataSet.selectTitle')}</div>
       <div className="flex justify-between items-center mb-4">
         <div className="text-sm font-medium text-text-secondary">
           {selected.length > 0 && `${selected.length} ${t('appDebug.feature.dataSet.selected')}`}
         </div>
-        <Link href="/datasets/create" className="flex items-center text-sm text-text-accent">
+        {/*<Link href="/datasets/create" className="flex items-center text-sm text-text-accent">
           <PlusIcon className="w-4 h-4 mr-1" />
           {t('appDebug.feature.dataSet.toCreate')}
-        </Link>
+        </Link>*/}
       </div>
 
       {!loaded && (
@@ -147,15 +151,14 @@ const KnowledgeBaseSelector: FC<IKnowledgeBaseSelectorProps> = ({
       )}
 
       {datasets && datasets?.length > 0 && (
-        <div ref={listRef} className='space-y-2 overflow-y-auto' style={{ maxHeight: 'calc(100vh - 200px)' }}>
+        <div ref={listRef} className='mt-1 flex flex-wrap justify-between px-3 pb-3' style={{ maxHeight: 'calc(100vh - 200px)' }}>
           {datasets.map(item => (
             <div
               key={item.id}
               className={cn(
-                'flex h-10 cursor-pointer items-center justify-between rounded-lg border-[0.5px] border-components-panel-border-subtle bg-components-panel-on-panel-item-bg px-2 shadow-xs hover:border-components-panel-border hover:bg-components-panel-on-panel-item-bg-hover hover:shadow-sm',
-                selected.some(i => i.id === item.id) && 'border-[1.5px] border-components-option-card-option-selected-border bg-state-accent-hover shadow-xs hover:border-components-option-card-option-selected-border hover:bg-state-accent-hover hover:shadow-xs',
-                !item.embedding_available && 'hover:border-components-panel-border-subtle hover:bg-components-panel-on-panel-item-bg hover:shadow-xs',
-              )}
+      'group relative mb-1 flex h-10 w-full cursor-pointer items-center justify-between rounded-lg border-[0.5px] border-components-panel-border-subtle bg-components-panel-on-panel-item-bg px-2 last-of-type:mb-0 hover:bg-components-panel-on-panel-item-bg-hover',
+
+    )}
               onClick={() => {
                 if (!item.embedding_available)
                   return
@@ -188,6 +191,7 @@ const KnowledgeBaseSelector: FC<IKnowledgeBaseSelectorProps> = ({
           ))}
         </div>
       )}
+    </div>
     </div>
   )
 }

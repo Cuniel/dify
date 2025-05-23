@@ -7,8 +7,8 @@ import useTheme from '@/hooks/use-theme'
 export type LogoStyle = 'default' | 'monochromeWhite'
 
 export const logoPathMap: Record<LogoStyle, string> = {
-  default: '/logo/logo.svg',
-  monochromeWhite: '/logo/logo-monochrome-white.svg',
+  default: '/logo/南京泉峰logo.png',
+  monochromeWhite: '/logo/南京泉峰logo.png',
 }
 
 export type LogoSize = 'large' | 'medium' | 'small'
@@ -36,7 +36,7 @@ const DifyLogo: FC<DifyLogoProps> = ({
   return (
     <img
       src={`${WEB_PREFIX}${logoPathMap[themedStyle]}`}
-      className={classNames('block object-contain', logoSizeMap[size], className)}
+      className={classNames('block object-contain', logoSizeMap[size], className,'h-[60px] w-[200px]')}
       alt='Dify logo'
     />
   )

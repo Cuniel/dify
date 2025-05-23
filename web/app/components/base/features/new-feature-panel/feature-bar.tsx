@@ -36,7 +36,7 @@ const FeatureBar = ({
   }, [features, isChatMode, showFileUpload])
 
   return (
-    <div className='m-1 mt-0 -translate-y-2 rounded-b-[10px] border-b border-l border-r border-components-panel-border-subtle bg-util-colors-indigo-indigo-50 px-2.5 py-2 pt-4'>
+    <div className='mb-1 mt-2 rounded-[10px] border border-components-panel-border-subtle bg-util-colors-indigo-indigo-50 px-2.5 py-2 '>
       {noFeatureEnabled && (
         <div className='flex cursor-pointer items-end gap-1' onClick={() => onFeatureBarClick?.(true)}>
           <RiApps2AddLine className='h-3.5 w-3.5 text-text-accent' />

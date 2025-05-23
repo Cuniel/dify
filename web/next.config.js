@@ -12,6 +12,7 @@ const withMDX = require('@next/mdx')({
     // providerImportSource: "@mdx-js/react",
   },
 })
+const webpack = require('webpack'); // 添加这行来导入 webpack
 
 // the default url to prevent parse url error when running jest
 const hasSetWebPrefix = process.env.NEXT_PUBLIC_WEB_PREFIX
@@ -24,7 +25,19 @@ const nextConfig = {
   basePath,
   assetPrefix,
   webpack: (config, { dev, isServer }) => {
-    config.plugins.push(codeInspectorPlugin({ bundler: 'webpack' }))
+    config.plugins.push(codeInspectorPlugin({ bundler: 'webpack' })); // 移动这行到这里
+
+    if (dev && !isServer) {
+      const originalEntry = config.entry
+      config.entry = async () => {
+        const entries = await originalEntry()
+        if (entries['main.js'] && !entries['main.js'].includes('./client/dev-error-overlay')) {
+          entries['main.js'].unshift('webpack-hot-middleware/client')
+        }
+        return entries
+      }
+      config.plugins.push(new webpack.HotModuleReplacementPlugin())
+    }
     return config
   },
   productionBrowserSourceMaps: false, // enable browser source map generation during the production build
