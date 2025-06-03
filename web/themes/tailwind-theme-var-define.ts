@@ -404,6 +404,7 @@ const vars = {
   'background-interaction-from-bg-1': 'var(--color-background-interaction-from-bg-1)',
   'background-interaction-from-bg-2': 'var(--color-background-interaction-from-bg-2)',
   'background-section-burn': 'var(--color-background-section-burn)',
+  'background-dataset-create-burn': 'var(--color-background-dataset-create-burn)',
   'background-default-dodge': 'var(--color-background-default-dodge)',
   'background-overlay': 'var(--color-background-overlay)',
   'background-default-dimmed': 'var(--color-background-default-dimmed)',

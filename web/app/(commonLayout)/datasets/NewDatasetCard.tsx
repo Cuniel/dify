@@ -15,7 +15,7 @@ const CreateAppCard = (
   const { t } = useTranslation()
 
   return (
-    <div className='bg-background-default-dimm flex min-h-[160px] flex-col rounded-xl border-[0.5px]
+    <div className='bg-background-dataset-create-burn flex min-h-[160px] flex-col rounded-xl border-[0.5px]
       border-components-panel-border transition-all duration-200 ease-in-out'
     >
       <Link ref={ref} className='group flex grow cursor-pointer items-start p-4' href={'/datasets/create'}>
