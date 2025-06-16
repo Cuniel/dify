@@ -563,7 +563,10 @@ services:
 
   # Frontend web application.
   web:
-    image: langgenius/dify-web:1.4.2
+    # image: langgenius/dify-web:1.4.2
+    build:
+      context: ../web  # 指向你本地Web代码的目录
+      dockerfile: Dockerfile  # 若目录中有Dockerfile则使用此文件
     restart: always
     environment:
       CONSOLE_API_URL: ${CONSOLE_API_URL:-}
