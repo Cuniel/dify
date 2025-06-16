@@ -13,7 +13,7 @@ export const logoPathMap: Record<LogoStyle, string> = {
 export type LogoSize = 'large' | 'medium' | 'small'
 
 export const logoSizeMap: Record<LogoSize, string> = {
-  large: 'w-16 h-7',
+  large: 'h-[60px] w-[200px]',
   medium: 'w-12 h-[22px]',
   small: 'w-9 h-4',
 }
