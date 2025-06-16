@@ -23,8 +23,8 @@ const Description = async ({
         {
           isZhHans && (
             <>
-              <span className='mr-1'>{tCommon('operation.in')}</span>
-              {t('marketplace.difyMarketplace')}
+              {/* <span className='mr-1'>{tCommon('operation.in')}</span> */}
+              {/* {t('marketplace.difyMarketplace')} */}
               {t('marketplace.discover')}
             </>
           )

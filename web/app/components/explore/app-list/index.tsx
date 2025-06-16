@@ -165,12 +165,12 @@ const Apps = ({
     <div className={cn(
       'flex h-full flex-col border-l-[0.5px] border-divider-regular',
     )}>
-
-      <div className='shrink-0 px-12 pt-6'>
-        <div className={`mb-1 ${s.textGradient} text-xl font-semibold`}>{t('explore.apps.title')}</div>
-        <div className='text-sm text-text-tertiary'>{t('explore.apps.description')}</div>
-      </div>
-
+      {/* {pageType === PageType.EXPLORE && (
+        <div className='shrink-0 pt-6 px-12'>
+          <div className={`mb-1 ${s.textGradient} text-xl font-semibold`}>{t('explore.apps.title')}</div>
+          <div className='text-gray-500 text-sm'>{t('explore.apps.description')}</div>
+        </div>
+      )} */}
       <div className={cn(
         'mt-6 flex items-center justify-between px-12',
       )}>
