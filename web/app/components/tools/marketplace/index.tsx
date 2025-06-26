@@ -83,7 +83,7 @@ const Marketplace = ({
           </span>
           {t('common.operation.in')}
           <a
-            href={`${MARKETPLACE_URL_PREFIX}?language=${locale}&q=${searchPluginText}&tags=${filterPluginTags.join(',')}${theme ? `&theme=${theme}` : ''}`}
+            href={getMarketplaceUrl('', { language: locale, q: searchPluginText, tags: filterPluginTags.join(','), theme })}
             className='system-sm-medium ml-1 flex items-center text-text-accent'
             target='_blank'
           >
